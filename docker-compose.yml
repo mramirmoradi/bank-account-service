@@ -1,0 +1,101 @@
+version: "3.9"
+
+services:
+  naming-server:
+    build: ./naming-server
+    container_name: naming-server
+    restart: always
+    ports:
+      - "8761:8761"
+    networks:
+      - mobilab-network
+    env_file:
+      - ./naming-server/.env  
+
+  mobilab:
+    build: ./mobilab
+    container_name: mobilab
+    restart: always
+    ports:
+      - "9080:9080"      
+    env_file:
+      - ./mobilab/.env
+    depends_on:   
+      - naming-server
+      - mobilab-db
+    networks:
+      - mobilab-network
+    links:
+      - "mobilab-db:mobilab-db"  
+
+  ecr-service:
+    build: ./exchange-conversion-rate-service
+    container_name: ecr-service
+    restart: always
+    ports:
+      - "9070:9070"
+    env_file:
+      - ./exchange-conversion-rate-service/.env
+    depends_on:
+      - naming-server
+      - ecr-db
+    networks:
+      - mobilab-network
+    links:
+      - "ecr-db:ecr-db"       
+
+  ecr-db:
+    image: mysql:latest
+    container_name: ecr-db
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./exchange-conversion-rate-service/.env
+    volumes:
+      - db1:/var/lib/mysql
+    networks:
+      - mobilab-network   
+
+  mobilab-db:
+    image: mysql:latest
+    container_name: mobilab-db
+    ports:
+      - "3307:3307"
+    env_file:
+      - ./mobilab/.env
+    volumes:
+      - db2:/var/lib/mysql
+    networks:
+      - mobilab-network 
+
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    restart: always
+    ports:
+      - "8765:8765"
+    env_file:
+      - ./api-gateway/.env  
+    depends_on:
+      - naming-server  
+    networks:
+      - mobilab-network
+
+  zipkin-service:
+    image: openzipkin/zipkin:latest
+    mem_limit: 500m
+    ports:
+      - "9411:9411"
+    networks:
+      - mobilab-network    
+
+
+networks:
+  mobilab-network:
+    driver: bridge
+
+volumes:
+  db1:
+    driver: local
+  db2:
+    driver: local

@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  naming-server:
+    build: .
+    container_name: naming-server
+    restart: always
+    ports:
+      - "8761:8761"
+    env_file:
+      - ./.env

@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  mobilab:
+    build: .
+    container_name: mobilab
+    restart: always
+    ports:
+      - "9080:9080"
+    links:
+      - "mobilab-db:mobilab-db"
+    depends_on:
+      - mobilab-db
+
+
+  mobilab-db:
+    image: mysql:latest
+    container_name: mobilab-db
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      - "3307:3307"
+    volumes:
+      - mobilab_data:/var/lib/mysql
+
+volumes:
+  mobilab_data:
+    driver: local
