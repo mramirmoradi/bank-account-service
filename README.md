@@ -13,11 +13,11 @@ docker-compose up --build
 By this command with help of **docker-compose.yml** file, all the microservice will deploy.
 
 ## URL Guide
-- Mobilab-Service: <link>http://localhost:8765/MOBILAB-SERVICE/api</link>
-- Mobilab-Service-Swagger: <link>http://localhost:8765/MOBILAB-SERVICE/swagger-ui.html</link>
-- ECR-Service: <link>http://localhost:8765/ECR-SERVICE/api</link>
-- ECR-Service-Swagger: <link>http://localhost:8765/ECR-SERVICE/swagger-ui.html</link>
-- Naming-Server: <link>http://localhost:8761/</link>
-- API-Gateway: <link>http://localhost:8765/</link>
-- Zipkin-Service: <link>http://localhost:9411/</link>
+- Mobilab-Service: <link> http://localhost:8765/MOBILAB-SERVICE/api </link>
+- Mobilab-Service-Swagger: <link> http://localhost:9080/api/swagger-ui/index.html </link>
+- ECR-Service: <link> http://localhost:8765/ECR-SERVICE/api </link>
+- ECR-Service-Swagger: <link> http://localhost:9070/api/swagger-ui/index.html </link>
+- Naming-Server: <link> http://localhost:8761/ </link>
+- API-Gateway: <link> http://localhost:8765/ </link>
+- Zipkin-Service: <link> http://localhost:9411/ </link>
 
