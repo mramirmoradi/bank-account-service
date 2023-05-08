@@ -1,0 +1,924 @@
+{
+	"info": {
+		"_postman_id": "f0f7aa25-7b80-497d-9d8f-b3000ba7d252",
+		"name": "Mobilab-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17216259"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"deleted moradi\",\n    \"description\" : \"test bank account\",\n    \"customerId\" :11,\n    \"currency\" : \"USD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8765/MOBILAB-SERVICE/api/v1/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"MOBILAB-SERVICE",
+								"api",
+								"v1",
+								"accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"deleted moradi\",\n    \"description\" : \"test bank account\",\n    \"customerId\" : 3,\n    \"currency\" : \"EUR\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9080/v1/accounts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9080",
+									"path": [
+										"v1",
+										"accounts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Dec 2022 14:08:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 17,\n    \"name\": \"deleted moradi\",\n    \"number\": \"7454894119734220\",\n    \"description\": \"test bank account\",\n    \"customerId\": 3,\n    \"balance\": 0,\n    \"currency\": \"EUR\",\n    \"createdDate\": \"2022-12-03T14:08:02.867+00:00\"\n}"
+						},
+						{
+							"name": "createExceptionOnExistingAccount",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"deleted moradi\",\n    \"description\" : \"test bank account\",\n    \"customerId\" : 3,\n    \"currency\" : \"EUR\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/v1/accounts",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"v1",
+										"accounts"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Dec 2022 16:18:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2022-12-05T16:18:18.940+00:00\",\n    \"status\": 406,\n    \"error\": \"Not Acceptable\",\n    \"exception\": \"com.mobilab.mobilab.Account.Exception.AccountCreationException\",\n    \"message\": \"customer already has an account with this currency, create new account is not possible.\",\n    \"path\": \"/v1/accounts\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"attena moradi\",\n    \"description\" : \"just updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8765/MOBILAB-SERVICE/api/v1/accounts/251812293643563",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"MOBILAB-SERVICE",
+								"api",
+								"v1",
+								"accounts",
+								"251812293643563"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/MOBILAB-SERVICE/api/v1/accounts/7454894119734220",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"MOBILAB-SERVICE",
+								"api",
+								"v1",
+								"accounts",
+								"7454894119734220"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/MOBILAB-SERVICE/api/v1/accounts?deleted=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"MOBILAB-SERVICE",
+								"api",
+								"v1",
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "11",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2022-12-01",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2022-12-04",
+									"disabled": true
+								},
+								{
+									"key": "number",
+									"value": "4192687771073754",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "amir",
+									"disabled": true
+								},
+								{
+									"key": "customerId",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "currency",
+									"value": "EUR",
+									"disabled": true
+								},
+								{
+									"key": "deleted",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9080/v1/accounts?deleted=false",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9080",
+									"path": [
+										"v1",
+										"accounts"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "11",
+											"disabled": true
+										},
+										{
+											"key": "startDate",
+											"value": "2022-11-04",
+											"disabled": true
+										},
+										{
+											"key": "endDate",
+											"value": "2022-12-06",
+											"disabled": true
+										},
+										{
+											"key": "number",
+											"value": "4192687771073754",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "amir",
+											"disabled": true
+										},
+										{
+											"key": "customerId",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "currency",
+											"value": "EUR",
+											"disabled": true
+										},
+										{
+											"key": "deleted",
+											"value": "false"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Dec 2022 14:13:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": 16,\n            \"name\": \"attena moradi\",\n            \"number\": \"251812293643563\",\n            \"description\": \"just updated\",\n            \"customerId\": 2,\n            \"balance\": 100,\n            \"currency\": \"EUR\",\n            \"createdDate\": \"2022-12-03T14:06:02.490+00:00\"\n        },\n        {\n            \"id\": 15,\n            \"name\": \"atena moradi\",\n            \"number\": \"530919677407434\",\n            \"description\": \"test bank account\",\n            \"customerId\": 2,\n            \"balance\": 100,\n            \"currency\": \"USD\",\n            \"createdDate\": \"2022-12-03T14:05:57.797+00:00\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"amir moradi\",\n            \"number\": \"4619750026358980\",\n            \"description\": \"test bank account\",\n            \"customerId\": 1,\n            \"balance\": 100,\n            \"currency\": \"USD\",\n            \"createdDate\": \"2022-12-03T14:05:47.819+00:00\"\n        },\n        {\n            \"id\": 13,\n            \"name\": \"amir moradi\",\n            \"number\": \"8137359468255659\",\n            \"description\": \"test bank account\",\n            \"customerId\": 1,\n            \"balance\": 100,\n            \"currency\": \"EUR\",\n            \"createdDate\": \"2022-12-03T14:05:41.710+00:00\"\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"offset\": 0,\n        \"pageNumber\": 0,\n        \"pageSize\": 20,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"totalPages\": 1,\n    \"totalElements\": 4,\n    \"last\": true,\n    \"size\": 20,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": true,\n        \"sorted\": false,\n        \"unsorted\": true\n    },\n    \"numberOfElements\": 4,\n    \"first\": true,\n    \"empty\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "charge",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerId\" : 7,\n    \"amount\" : 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8765/MOBILAB-SERVICE/api/v1/accounts/charge/3564991727615277",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"MOBILAB-SERVICE",
+								"api",
+								"v1",
+								"accounts",
+								"charge",
+								"3564991727615277"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "chargeException",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customerId\" : 1,\n    \"amount\" : 100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9080/v1/accounts/charge/3564991727615277",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9080",
+									"path": [
+										"v1",
+										"accounts",
+										"charge",
+										"3564991727615277"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Dec 2022 21:14:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2022-12-05T21:14:00.933+00:00\",\n    \"status\": 406,\n    \"error\": \"Not Acceptable\",\n    \"exception\": \"com.mobilab.mobilab.Account.Exception.NotCustomerAccountException\",\n    \"message\": \"This account not belongs to the customer.\",\n    \"path\": \"/v1/accounts/charge/3564991727615277\"\n}"
+						},
+						{
+							"name": "charge",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customerId\" : 7,\n    \"amount\" : 100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/v1/accounts/charge/3564991727615277",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"v1",
+										"accounts",
+										"charge",
+										"3564991727615277"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Dec 2022 21:14:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 19,\n    \"name\": \"deleted moradi\",\n    \"number\": \"3564991727615277\",\n    \"description\": \"test bank account\",\n    \"customerId\": 7,\n    \"balance\": 200,\n    \"currency\": \"EUR\",\n    \"createdDate\": \"2022-12-05T20:29:15.133+00:00\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/MOBILAB-SERVICE/api/v1/transactions/search?startDate=2022-11-01&endDate=2023-12-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"MOBILAB-SERVICE",
+								"api",
+								"v1",
+								"transactions",
+								"search"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2022-11-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2023-12-01"
+								},
+								{
+									"key": "accountNumber",
+									"value": "251812293643563",
+									"disabled": true
+								},
+								{
+									"key": "sourceAccountNumber",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "destinationAccountNumber",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "SUCCESS",
+									"disabled": true
+								},
+								{
+									"key": "trackingCode",
+									"value": "4bd2140f-7c5b-4c7c-9e04-4a903f8097be",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "SENT",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9080/v1/transactions/search?startDate=2022-11-01&endDate=2023-12-01",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9080",
+									"path": [
+										"v1",
+										"transactions",
+										"search"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6",
+											"disabled": true
+										},
+										{
+											"key": "startDate",
+											"value": "2022-11-01"
+										},
+										{
+											"key": "endDate",
+											"value": "2023-12-01"
+										},
+										{
+											"key": "accountNumber",
+											"value": "251812293643563",
+											"disabled": true
+										},
+										{
+											"key": "sourceAccountNumber",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "destinationAccountNumber",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "SUCCESS",
+											"disabled": true
+										},
+										{
+											"key": "trackingCode",
+											"value": "4bd2140f-7c5b-4c7c-9e04-4a903f8097be",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "SENT",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Dec 2022 15:11:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": 8,\n            \"accountNumber\": \"251812293643563\",\n            \"sourceAccountNumber\": \"4619750026358980\",\n            \"destinationAccountNumber\": \"251812293643563\",\n            \"amount\": 9.48992,\n            \"exchangeRate\": 0.948992,\n            \"sourceCurrency\": \"USD\",\n            \"destinationCurrency\": \"EUR\",\n            \"status\": \"SUCCESS\",\n            \"type\": \"RECEIVED\",\n            \"trackingCode\": \"3c9ac6e0-d811-4c06-97ea-64dc5bf455ba\",\n            \"createdDate\": \"2022-12-03T15:07:39.584+00:00\"\n        },\n        {\n            \"id\": 7,\n            \"accountNumber\": \"4619750026358980\",\n            \"sourceAccountNumber\": \"4619750026358980\",\n            \"destinationAccountNumber\": \"251812293643563\",\n            \"amount\": 10,\n            \"exchangeRate\": 0.948992,\n            \"sourceCurrency\": \"USD\",\n            \"destinationCurrency\": \"EUR\",\n            \"status\": \"SUCCESS\",\n            \"type\": \"SENT\",\n            \"trackingCode\": \"3c9ac6e0-d811-4c06-97ea-64dc5bf455ba\",\n            \"createdDate\": \"2022-12-03T15:07:39.576+00:00\"\n        },\n        {\n            \"id\": 6,\n            \"accountNumber\": \"251812293643563\",\n            \"sourceAccountNumber\": \"4619750026358980\",\n            \"destinationAccountNumber\": \"251812293643563\",\n            \"amount\": 9.48992,\n            \"exchangeRate\": 0.948992,\n            \"sourceCurrency\": \"USD\",\n            \"destinationCurrency\": \"EUR\",\n            \"status\": \"SUCCESS\",\n            \"type\": \"RECEIVED\",\n            \"trackingCode\": \"4bd2140f-7c5b-4c7c-9e04-4a903f8097be\",\n            \"createdDate\": \"2022-12-03T14:33:11.693+00:00\"\n        },\n        {\n            \"id\": 5,\n            \"accountNumber\": \"4619750026358980\",\n            \"sourceAccountNumber\": \"4619750026358980\",\n            \"destinationAccountNumber\": \"251812293643563\",\n            \"amount\": 10,\n            \"exchangeRate\": 0.948992,\n            \"sourceCurrency\": \"USD\",\n            \"destinationCurrency\": \"EUR\",\n            \"status\": \"SUCCESS\",\n            \"type\": \"SENT\",\n            \"trackingCode\": \"4bd2140f-7c5b-4c7c-9e04-4a903f8097be\",\n            \"createdDate\": \"2022-12-03T14:33:11.682+00:00\"\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"offset\": 0,\n        \"pageNumber\": 0,\n        \"pageSize\": 20,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"totalPages\": 1,\n    \"totalElements\": 4,\n    \"last\": true,\n    \"size\": 20,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": true,\n        \"sorted\": false,\n        \"unsorted\": true\n    },\n    \"numberOfElements\": 4,\n    \"first\": true,\n    \"empty\": false\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Transfer",
+			"item": [
+				{
+					"name": "request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sourceAccountNumber\" : \"251812293643563\",\n    \"destinationAccountNumber\" : \"4619750026358980\",\n    \"amount\" : 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8765/MOBILAB-SERVICE/api/v1/transfer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"MOBILAB-SERVICE",
+								"api",
+								"v1",
+								"transfer"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SuccessfulTransferSameCurrency",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sourceAccountNumber\" : \"4619750026358980\",\n    \"destinationAccountNumber\" : \"530919677407434\",\n    \"amount\" : 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9080/v1/transfer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9080",
+									"path": [
+										"v1",
+										"transfer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Dec 2022 14:14:49 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"trackingCode\": \"c925a8ce-6a2a-4211-a828-11f886fb63a7\",\n    \"message\": \"10.000000 USD amount of money successfully transferred from (4619750026358980) to (530919677407434).\",\n    \"code\": 1\n}"
+						},
+						{
+							"name": "SuccessfulTransferByExchangeThirdParty",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sourceAccountNumber\" : \"4619750026358980\",\n    \"destinationAccountNumber\" : \"251812293643563\",\n    \"amount\" : 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/v1/transfer",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"v1",
+										"transfer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Dec 2022 15:07:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"trackingCode\": \"3c9ac6e0-d811-4c06-97ea-64dc5bf455ba\",\n    \"message\": \"9.489920 EUR successfully transferred from (4619750026358980) to (251812293643563).\",\n    \"code\": 1\n}"
+						},
+						{
+							"name": "BalanceNotEnoughException",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sourceAccountNumber\" : \"4619750026358980\",\n    \"destinationAccountNumber\" : \"251812293643563\",\n    \"amount\" : 1000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/v1/transfer",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"v1",
+										"transfer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Dec 2022 15:08:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"trackingCode\": null,\n    \"message\": \"Unsuccessful transfer : Balance is not enough.\",\n    \"code\": 0\n}"
+						},
+						{
+							"name": "AccountNotFoundException",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sourceAccountNumber\" : \"461975002635898\",\n    \"destinationAccountNumber\" : \"251812293643563\",\n    \"amount\" : 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localhost}}/v1/transfer",
+									"host": [
+										"{{localhost}}"
+									],
+									"path": [
+										"v1",
+										"transfer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Dec 2022 15:08:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"trackingCode\": null,\n    \"message\": \"Unsuccessful transfer : Account not found.\",\n    \"code\": 0\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

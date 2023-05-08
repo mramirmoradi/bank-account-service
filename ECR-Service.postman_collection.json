@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "6a545302-606d-4eca-9052-eafde2dc03bd",
+		"name": "ECR-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17216259"
+	},
+	"item": [
+		{
+			"name": "Currency Conversion Rate",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/ECR-SERVICE/api/v1/currency-pair",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"ECR-SERVICE",
+								"api",
+								"v1",
+								"currency-pair"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"baseCurrency\" : \"USD\",\n    \"quoteCurrency\" : \"EUR\",\n    \"exchangeRate\" : 0.9\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8765/ECR-SERVICE/api/v1/currency-pair",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"ECR-SERVICE",
+								"api",
+								"v1",
+								"currency-pair"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Conversion Rate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/ECR-SERVICE/api/v1/exchange-conversion-rate/USD-USD",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"ECR-SERVICE",
+								"api",
+								"v1",
+								"exchange-conversion-rate",
+								"USD-USD"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
