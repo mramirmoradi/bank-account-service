@@ -11,15 +11,14 @@ The ECR-service is responsible for calculating the exchange conversion rate betw
 
 
 ## Deployment
-By the above command, ecr-service will deploy on:<br>
-<link>http://localhost:9070/api</link>
+By the above command, ecr-service will deploy on: <link> http://localhost:9070/api </link>
 
 ```bash
   docker-compose up --build
 ```
 
 ## Documentation
-- Swagger documention will be deploy on: <link>http://localhost:9070/swagger-ui.html</link>
+- Swagger documentation will be deploy on: <link> http://localhost:9070/swagger-ui.html </link>
 - Postman collection will be available on project folder.
 
 ## Run Test cases
@@ -37,5 +36,5 @@ Go to the project directory and install dependencies.
 ```
 
 ### Environment Variables
-To run this project without docker localy, you will need to add your local machine environment variables to application-local.properties file and dont forget to change the profile.
+To run this project without docker locally, you will need to add your local machine environment variables to application-local.properties file and dont forget to change the profile.
 

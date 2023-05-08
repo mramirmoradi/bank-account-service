@@ -7,7 +7,7 @@ The naming server is responsible for loud balancing and naming service between m
 
 
 ## Deployment
-By the above command, ecr-service will deploy on: <link>http://localhost:8761/</link>
+By the above command, ecr-service will deploy on: <link> http://localhost:8761/ </link>
 
 ```bash
   docker-compose up --build
@@ -21,5 +21,5 @@ Go to the project directory and install dependencies.
 ```
 
 ### Environment Variables
-To run this project without docker localy, you will need to add your local machine environment variables to application-local.properties file and dont forget to change the profile.
+To run this project without docker locally, you will need to add your local machine environment variables to application-local.properties file and dont forget to change the profile.
 
