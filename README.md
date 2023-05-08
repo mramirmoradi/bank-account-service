@@ -1,9 +1,9 @@
 # Project Details
 The project consists of 4 microservices.
-- Mobilab-service: The Mobilab-service is responsible for managing customer bank accounts and money transformation between them with help of the ECR-service microservice.
-- ECR-service: The ECR-service is responsible for calculating the exchange conversion rate between two currencies (v1 just supports USD and EUR) with the use of third parties or its own offline data.
-- Naming-server: The naming server is responsible for loud balancing and naming service between microservices.
-- Api-gateway: The API gateway is responsible for managing requests that come to microservices with the help of the Naming server.
+- **Mobilab-service**: The Mobilab-service is responsible for managing customer bank accounts and money transformation between them with help of the ECR-service microservice.
+- **ECR-service**: The ECR-service is responsible for calculating the exchange conversion rate between two currencies (v1 just supports USD and EUR) with the use of third parties or its own offline data.
+- **Naming-server**: The naming server is responsible for loud balancing and naming service between microservices.
+- **Api-gateway**: The API gateway is responsible for managing requests that come to microservices with the help of the Naming server.
 
 
 ## Deployment
