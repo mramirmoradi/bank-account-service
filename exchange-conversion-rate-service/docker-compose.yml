@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  ecr-service:
+    build: .
+    container_name: ecr-service
+    restart: always
+    ports:
+      - "9070:9070"
+    links:
+      - "ecr-db:ecr-db"
+    depends_on:
+      -   ecr-db
+
+
+  ecr-db:
+    image: mysql:latest
+    container_name: ecr-db
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      - "3306:3306"
+    volumes:
+      - ecr_data:/var/lib/mysql
+
+volumes:
+  ecr_data:
+    driver: local
